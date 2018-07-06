@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+    
+
+    <header class="jumbotron">
+        <div class="container">
+            <h1 class="bold"> <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Welcome To ImageShare</h1>
+            <p>Share your images</p>
+            <p>
+                <a class="btn btn-primary" href="/imageshare/new">Add new Post</a>
+            </p>
+         </div>
+    </header>
+
+<div class="container background-cl">
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        
+                <br>
+                <% campgrounds.forEach(function(campground){ %>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="hovereffect">
+                            <img class="img-responsive" src="<%= campground.image %>">
+                            <a href="/imageshare/<%= campground._id %>">
+                                <div class="overlay">
+                                    <h2><%= campground.name %></h2>
+                                    <p>More Info</p>
+                                </div>
+                            </a>
+                            
+                            <!--<p>
+                                <a href="/campgrounds/<%= campground._id %>" class="btn btn-sm btn-primary">More Info</a> 
+                            </p>-->
+                        </div>
+                    </div>
+            <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
